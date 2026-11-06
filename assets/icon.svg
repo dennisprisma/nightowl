@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#2a2b31"/><stop offset="1" stop-color="#08080a"/></radialGradient>
+    <radialGradient id="eye" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff5a50"/><stop offset=".55" stop-color="#d0101c"/><stop offset="1" stop-color="#5c0509"/></radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#d0101c" stop-opacity=".55"/><stop offset="1" stop-color="#d0101c" stop-opacity="0"/></radialGradient>
+    <radialGradient id="moon" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#efe1bb" stop-opacity=".22"/><stop offset="1" stop-color="#efe1bb" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <circle cx="256" cy="230" r="230" fill="url(#moon)"/>
+  <g stroke="#efe1bb" stroke-opacity=".18" stroke-width="3" stroke-linecap="round">
+    <path d="M60 40l-14 60M140 20l-14 60M400 30l-14 60M470 120l-14 60M40 260l-14 60M480 300l-14 60M90 420l-14 60M430 430l-14 60"/>
+  </g>
+  <!-- skyline -->
+  <path d="M0 512V420h40v-30h30v50h26v-80h18v-24h10v24h18v80h30v-40h40v60h30v-110h12l8-30 8 30h12v110h34v-50h40v70h36v-90h22v-20h14v20h22v90h40v-40h32v92z" fill="#121216"/>
+  <!-- gufo -->
+  <g stroke="#09090b" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M256 128c-70 0-118 22-128 86l-30-60c-4 54 6 98 30 124-6 92 40 168 128 168s134-76 128-168c24-26 34-70 30-124l-30 60c-10-64-58-86-128-86z" fill="#34343a"/>
+    <path d="M256 196c-34 0-58 10-74 30M256 196c34 0 58 10 74 30" fill="none" stroke-opacity=".0"/>
+    <circle cx="198" cy="262" r="62" fill="#45454c"/>
+    <circle cx="314" cy="262" r="62" fill="#45454c"/>
+  </g>
+  <circle cx="198" cy="262" r="80" fill="url(#glow)"/>
+  <circle cx="314" cy="262" r="80" fill="url(#glow)"/>
+  <g stroke="#09090b" stroke-width="9">
+    <circle cx="198" cy="262" r="42" fill="url(#eye)"/>
+    <circle cx="314" cy="262" r="42" fill="url(#eye)"/>
+  </g>
+  <circle cx="198" cy="262" r="16" fill="#060607"/>
+  <circle cx="314" cy="262" r="16" fill="#060607"/>
+  <circle cx="186" cy="248" r="7" fill="#fff6e6"/>
+  <circle cx="302" cy="248" r="7" fill="#fff6e6"/>
+  <path d="M240 316h32l-16 30z" fill="#cdb88b" stroke="#09090b" stroke-width="7" stroke-linejoin="round"/>
+  <g stroke="#cfc3a3" stroke-opacity=".45" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M216 392l14 12 14-12M256 404l14 12 14-12M296 392l14 12 14-12M236 434l14 12 14-12M276 434l14 12 14-12"/>
+  </g>
+  <!-- fedora -->
+  <g stroke="#09090b" stroke-width="10" stroke-linejoin="round">
+    <path d="M120 178c40 22 232 22 272 0-20-14-60-22-136-22s-116 8-136 22z" fill="#1c1b1e"/>
+    <path d="M170 166c0-50 18-82 46-86l40 16 40-16c28 4 46 36 46 86-48 10-124 10-172 0z" fill="#26252a"/>
+  </g>
+  <path d="M172 150c48 9 120 9 168 0v18c-48 9-120 9-168 0z" fill="#57524a" stroke="#09090b" stroke-width="7"/>
+</svg>

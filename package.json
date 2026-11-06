@@ -1,0 +1,23 @@
+{
+  "name": "nightowl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gioco investigativo noir: un delitto ogni notte nella New York degli anni '30.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "verify": "node tools/verify.mjs",
+    "test": "node tools/verify.mjs && node tools/build.mjs && node test/scene.mjs && node test/flow.mjs && node test/pwa.mjs",
+    "serve": "node tools/build.mjs && node tools/serve.mjs",
+    "shots": "node test/shots.mjs",
+    "audio": "node test/audio.mjs",
+    "video": "node tools/build.mjs && node tools/video.mjs",
+    "icons": "node tools/icons.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.50.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

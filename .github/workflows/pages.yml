@@ -1,0 +1,63 @@
+# Ogni push su main: controlla i casi, costruisce la PWA e la pubblica su GitHub Pages.
+# Una sola impostazione da fare a mano (una volta): Settings → Pages → Source: "GitHub Actions".
+name: Pubblica su GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Verifica logica dei casi
+        run: node tools/verify.mjs
+      - name: Build
+        run: node tools/build.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/app
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  # Test nel browser: segnalano i problemi ma non bloccano la pubblicazione.
+  test:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshot-test
+          path: test/out/*.png
+          if-no-files-found: ignore
